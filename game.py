@@ -287,6 +287,11 @@ pygame.init()
 screen = pygame.display.set_mode((screenWidth, screenHeight))
 pygame.display.set_caption("Zombie Plague")
 
+# Play intro song
+pygame.mixer.music.load('intro.mp3')
+pygame.mixer.music.play(-1)
+pygame.mixer.music.set_volume(0.1)
+
 # Make background and menus
 pausedImg = pygame.image.load('paused.png').convert()
 background = pygame.image.load('background.png').convert()
@@ -327,6 +332,8 @@ player = Player(livesPanel, scorePanel)
 
 panelsLayer.move_to_back(bigPanel)
 userInput = Input()
+
+
 
 while startMenuIsOpen:
     clock.tick(60)
@@ -469,6 +476,11 @@ while startMenuIsOpen:
     pygame.event.pump()
 
 # Game begin
+# Play ingame song
+pygame.mixer.music.stop()
+pygame.mixer.music.load("ingame.mp3")
+pygame.mixer.music.play(-1)
+pygame.mixer.music.set_volume(0.1)
 
 GameOver = False
 theEvent = Event(screenWidth / 2, screenHeight / 2, getMinTime(difficulty), getMaxTime(difficulty))
@@ -495,43 +507,43 @@ while running:
 
     pygame.key.set_repeat()
     if event.type == pygame.KEYDOWN:
-        if keyState[pygame.K_0] and timeout >= 11:
+        if keyState[pygame.K_0] and timeout >= 20:
             userInput.addIn("0")
             timeout = 1
-        elif keyState[pygame.K_1] and timeout >= 11:
+        elif keyState[pygame.K_1] and timeout >= 20:
             userInput.addIn("1")
             timeout = 1
-        elif keyState[pygame.K_2] and timeout >= 11:
+        elif keyState[pygame.K_2] and timeout >= 20:
             userInput.addIn("2")
             timeout = 1
-        elif keyState[pygame.K_3] and timeout >= 11:
+        elif keyState[pygame.K_3] and timeout >= 20:
             userInput.addIn("3")
             timeout = 1
-        elif keyState[pygame.K_4] and timeout >= 11:
+        elif keyState[pygame.K_4] and timeout >= 20:
             userInput.addIn("4")
             timeout = 1
-        elif keyState[pygame.K_5] and timeout >= 11:
+        elif keyState[pygame.K_5] and timeout >= 20:
             userInput.addIn("5")
             timeout = 1
-        elif keyState[pygame.K_6] and timeout >= 11:
+        elif keyState[pygame.K_6] and timeout >= 20:
             userInput.addIn("6")
             timeout = 1
-        elif keyState[pygame.K_7] and timeout >= 11:
+        elif keyState[pygame.K_7] and timeout >= 20:
             userInput.addIn("7")
             timeout = 1
-        elif keyState[pygame.K_8] and timeout >= 11:
+        elif keyState[pygame.K_8] and timeout >= 20:
             userInput.addIn("8")
             timeout = 1
-        elif keyState[pygame.K_9] and timeout >= 11:
+        elif keyState[pygame.K_9] and timeout >= 20:
             userInput.addIn("9")
             timeout = 1
-        elif keyState[pygame.K_BACKSPACE] and timeout >= 11:
+        elif keyState[pygame.K_BACKSPACE] and timeout >= 20:
             userInput.addIn("\b")
             timeout = 1
-        elif keyState[pygame.K_MINUS] and timeout >= 11:
+        elif keyState[pygame.K_MINUS] and timeout >= 20:
             userInput.addIn("-")
             timeout = 1
-        elif keyState[pygame.K_RETURN] and timeout >= 11:
+        elif keyState[pygame.K_RETURN] and timeout >= 20:
             userInput.addIn("\r")
             timeout = 1
 
